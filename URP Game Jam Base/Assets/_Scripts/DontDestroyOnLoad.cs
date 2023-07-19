@@ -8,10 +8,5 @@ public class DontDestroyOnLoad : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            GameObject child = transform.GetChild(i).gameObject;
-            DontDestroyOnLoad(child);
-        }
     }
 }

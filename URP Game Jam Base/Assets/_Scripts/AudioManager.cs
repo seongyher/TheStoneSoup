@@ -15,25 +15,45 @@ public struct Sound
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public List<Sound> sounds = new List<Sound>();
-    public List<Sound> music = new List<Sound>();
+    public bool masterMute = false;
+    public float masterVolume;
+    public AudioMixer audioMixer;
 
-    private List<AudioSource> activeSources = new List<AudioSource>();
+    [Header("Music")]
+    public bool musicMute;
+    public float musicVolume;
+    public AudioMixerGroup musicMix;
     private AudioSource musicSource;
+    public bool playOnStart;
     private Sound currentMusic;
     public string startingMusic;
+    public List<Sound> music = new List<Sound>();
 
-    public float volumeLevel = 1f;
-    public bool masterMute = false;
+    [Header("Sound Effects")]
     public bool sfxMute = false;
-    public bool musicMute;
-    public AudioMixer audioMixer;
+    public float sfxVolume;
     public AudioMixerGroup sfxMix;
-    public AudioMixerGroup musicMix;
+    public List<Sound> sounds = new List<Sound>();
+    private List<AudioSource> activeSources = new List<AudioSource>();
+
+    [Header("Dialogue")]
+    public bool dialogueMute;
+    public float dialogueVolume;
+    public AudioMixerGroup dialogueMix;
+    private AudioSource dialogueSource;
+    public List<Sound> dialogue = new List<Sound>();
+
 
     private void Start()
     {
-        PlayMusic(startingMusic);
+        if(playOnStart)
+            PlayMusic(startingMusic);
+
+        //Reset volumes to default.
+        ChangeMasterVol(masterVolume);
+        ChangeSfxVol(sfxVolume);
+        ChangeMusicVol(musicVolume);
+        ChangeDialogueVol(dialogueVolume);
     }
     
     public void PlaySound(string soundToPlay)
@@ -61,7 +81,7 @@ public class AudioManager : Singleton<AudioManager>
         source.outputAudioMixerGroup = sfxMix;
 
         source.clip = soundToPlay.clip;
-        source.volume = soundToPlay.volumePercent * volumeLevel;
+        source.volume = soundToPlay.volumePercent * sfxVolume;
         source.Play();
 
         activeSources.Add(source);
@@ -96,10 +116,41 @@ public class AudioManager : Singleton<AudioManager>
         
         currentMusic = musicToPlay;
         musicSource.clip = currentMusic.clip;
-        musicSource.volume = currentMusic.volumePercent * volumeLevel;
+        musicSource.volume = currentMusic.volumePercent * musicVolume;
         
         musicSource.loop = true;
         musicSource.Play();
+    }
+
+    public void PlayDialogue(string dialogueToPlay)
+    {
+        Sound sound = dialogue.Find(s => s.name == dialogueToPlay);
+
+        if (sound.clip == null)
+        {
+            Debug.Log("Dialogue not found: " + dialogueToPlay);
+            return;
+        }
+
+        PlayDialogue(sound);
+    }
+
+    public void PlayDialogue(Sound dialogueToPlay)
+    {
+        if (masterMute || dialogueMute)
+            return;
+
+        if (!dialogueSource)
+        {
+            dialogueSource = gameObject.AddComponent<AudioSource>();
+            dialogueSource.outputAudioMixerGroup = dialogueMix;
+        }
+
+        dialogueSource.clip = dialogueToPlay.clip;
+        dialogueSource.volume = dialogueToPlay.volumePercent * dialogueVolume;
+        dialogueSource.Play();
+
+        activeSources.Add(dialogueSource);
     }
 
     //Audio Clean-up
@@ -118,19 +169,25 @@ public class AudioManager : Singleton<AudioManager>
 
     public void ChangeMasterVol(float sliderValue)
     {
-        float vol = Mathf.Log10(sliderValue) * 20; 
-        audioMixer.SetFloat("MasterVol", vol);
+        masterVolume = sliderValue;
+        audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 20);
     }
     
     public void ChangeSfxVol(float sliderValue)
     {
-        float vol = Mathf.Log10(sliderValue) * 20; 
-        audioMixer.SetFloat("SfxVol", vol);
+        sfxVolume = sliderValue; 
+        audioMixer.SetFloat("SfxVol", Mathf.Log10(sfxVolume) * 20);
     }
     
     public void ChangeMusicVol(float sliderValue)
     {
-        float vol = Mathf.Log10(sliderValue) * 20; 
-        audioMixer.SetFloat("MusicVol", vol);
+        musicVolume = sliderValue; 
+        audioMixer.SetFloat("MusicVol", Mathf.Log10(musicVolume) * 20);
+    }
+
+    public void ChangeDialogueVol(float sliderValue)
+    {
+        dialogueVolume = sliderValue;
+        audioMixer.SetFloat("DialogueVol", Mathf.Log10(dialogueVolume) * 20);
     }
 }

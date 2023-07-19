@@ -12,7 +12,8 @@ namespace Managers
         public enum Scenes
         {
             Title,
-            Game
+            Game1,
+            Game2,
         }
         
 
@@ -29,6 +30,11 @@ namespace Managers
         {
             int sceneIndex = (int)scene;
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+        }
+
+        public void QuitToMenu()
+        {
+            LoadScene(Scenes.Title);
         }
 
         public void Quit()
