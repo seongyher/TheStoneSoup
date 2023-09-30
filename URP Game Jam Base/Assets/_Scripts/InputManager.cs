@@ -14,6 +14,7 @@ public class InputManager : Singleton<InputManager>
     public static event Action OnPrimaryUpdated;
     public static event Action<Vector2> OnLookUpdated;
     public static event Action<Vector2> OnMoveUpdated;
+    public static event Action OnInterruptUpdated;
 
     void Awake()
     {
@@ -55,5 +56,8 @@ public class InputManager : Singleton<InputManager>
 
     }
 
-
+    public void OnInterrupt(InputAction.CallbackContext context)
+    {
+        OnInterruptUpdated?.Invoke();
+    }
 }

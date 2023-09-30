@@ -6,6 +6,7 @@ using TMPro;
 using Ink.Runtime;
 using System.Linq;
 using UnityEditor;
+using UnityEngine.InputSystem;
 
 /* A new and flexible version of my InkDialogueHandler that might be a bit overkill for a game jam :P
  * by Kris Sian */
@@ -50,6 +51,7 @@ public class InkDialogueRunner : MonoBehaviour
     [Header("Special Prefixes")]
     public List<string> prefixes = new List<string>() { "END", "STL", "ITM", "ADD", "RMV", "SK1", "SK2", "SK3" };        // Use these to call specific functions from within an Ink Script.
 
+    public InputActionAsset inputActions;
 
 
     private void Awake()
@@ -292,11 +294,11 @@ public class InkDialogueRunner : MonoBehaviour
             int numberOfOptions = playerChoicesContainer.transform.childCount;
             if (numberOfOptions < 4)
             {
-                playerChoicesDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, (numberOfOptions * 55));
+                playerChoicesDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1200, (numberOfOptions * 55));
             }
             else
             {
-                playerChoicesDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 220);
+                playerChoicesDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1200, 220);
             }
         }
     }
@@ -330,22 +332,19 @@ public class InkDialogueRunner : MonoBehaviour
 
 
 
-    private void Update()
+    private void Skip()
     {
-        if (Input.GetButtonDown("Interact"))        // Spacebar.
+        if (currentlyTyping)                    // Allows the player to skip the 'typing' and simply displays the line of dialogue in full.
         {
-            if (currentlyTyping)                    // Allows the player to skip the 'typing' and simply displays the line of dialogue in full.
-            {
-                dialogueTextbox.text = sentence;
-                currentlyTyping = false;
-            }
+            dialogueTextbox.text = sentence;
+            currentlyTyping = false;
+        }
 
-            if (finishedTyping)                     // Allows the player to manually go to the next line of dialogue, rather than wait for the automatic timer.
+        if (finishedTyping)                     // Allows the player to manually go to the next line of dialogue, rather than wait for the automatic timer.
+        {
+            if (storyRunner.canContinue)
             {
-                if (storyRunner.canContinue)
-                {
-                    NextSentence();
-                }
+                NextSentence();
             }
         }
     }
@@ -398,5 +397,17 @@ public class InkDialogueRunner : MonoBehaviour
         }
 
         return false;
+    }
+
+
+
+    private void OnEnable()
+    {
+        inputActions.FindAction("Interrupt").performed += context => Skip();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.FindAction("Interrupt").performed -= context => Skip();
     }
 }
