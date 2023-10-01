@@ -9,10 +9,13 @@ public class Pickup : MonoBehaviour
     private bool isDragging = false;
     public Rigidbody2D rb;
 
+    bool isEnterPot;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true; 
+        isEnterPot = false;
     }
 
     void OnMouseDown()
@@ -38,5 +41,26 @@ public class Pickup : MonoBehaviour
             transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("trig " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "detect") {
+            Debug.Log("enter");
+            isEnterPot = true;
+        }
+     }
+
+     private void OnTriggerExit2D(Collider2D collision)
+    {
+    Debug.Log("trig exit " + collision.gameObject.tag);
+        if (isEnterPot) {
+            if (collision.gameObject.tag == "barrier") {
+            Debug.Log("in");
+            gameObject.layer = LayerMask.NameToLayer("ball-inside");
+            }
+        }
+    }
+
 }
 

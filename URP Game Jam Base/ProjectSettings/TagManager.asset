@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Teleporter
   - TeleportReceiver
+  - detect
+  - barrier
   layers:
   - Default
   - TransparentFX
@@ -13,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - ball-outside
+  - ball-inside
+  - ball-barrier
   - 
   - 
   - 
