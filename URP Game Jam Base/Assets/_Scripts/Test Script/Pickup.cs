@@ -7,21 +7,25 @@ public class Pickup : MonoBehaviour
 {
     private Vector3 offset;
     private bool isDragging = false;
+    private bool isFalling = false;
     public Rigidbody2D rb;
+    public float fallSpeed = 8;
 
     bool isEnterPot;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = true; 
+        //rb.isKinematic = true; 
         isEnterPot = false;
+        isFalling = true;
     }
 
     void OnMouseDown()
     {
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
         isDragging = true;
+        isFalling = false;
     }
 
     void OnMouseUp()
@@ -32,6 +36,7 @@ public class Pickup : MonoBehaviour
         Vector3 velocity = (mousePos - transform.position).normalized * 10f; 
         //rb.velocity = new Vector3(velocity.x, velocity.y, 0f);
         rb.velocity = Vector3.zero;
+        rb.gravityScale = 1;
     }
 
     void Update()
@@ -40,6 +45,11 @@ public class Pickup : MonoBehaviour
         {
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f)) + offset;
             transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+        }
+
+        if (isFalling) {
+            rb.velocity = new Vector3(0f, fallSpeed * -1, 0f);
+            rb.gravityScale = 0;
         }
     }
 
