@@ -71,12 +71,37 @@ PrefabInstance:
     - target: {fileID: 5555249498110833298, guid: 69b1f1fc836ec652299f18ca1d813b80,
         type: 3}
       propertyPath: m_Name
-      value: pluto
+      value: pluto Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5555249498110833298, guid: 69b1f1fc836ec652299f18ca1d813b80,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555249498110833310, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768421476432723665, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.1874323
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768421476432723665, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1703932
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768421476432723665, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0036513507
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768421476432723665, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.004868388
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b1f1fc836ec652299f18ca1d813b80, type: 3}

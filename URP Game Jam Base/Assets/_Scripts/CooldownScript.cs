@@ -11,7 +11,7 @@ public class CooldownScript : MonoBehaviour
     public Slider cooldownSlider;
     public GameObject cookButton;
 
-    private bool isReady = true;
+    private bool isReady = false;
     // Start is called before the first frame update
     void Start()
     {

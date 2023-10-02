@@ -23,6 +23,7 @@ public class DetectionZoneController : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI RequirementsTMP = null;
 
     public string requiredIngredient;
+    public GameObject cookParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,11 @@ public class DetectionZoneController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FoodList.Add(collision.GetComponent<FoodItem>());
+        if (!FoodList.Contains(collision.GetComponent<FoodItem>()))
+        {
+            FoodList.Add(collision.GetComponent<FoodItem>());
+        }
+        
         //CheckRequirements();
     }
 
@@ -103,6 +108,7 @@ public class DetectionZoneController : MonoBehaviour
         {
             if (FoodList[i].flavour == requiredIngredient)
             {
+                Instantiate(cookParticle, FoodList[i].transform.position, Quaternion.identity);
                 Destroy(FoodList[i].gameObject);
                 //FoodList.RemoveAt(i);
             }

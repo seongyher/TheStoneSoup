@@ -12,10 +12,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: animals base
       objectReference: {fileID: 0}
+    - target: {fileID: 6424214468269278629, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
         type: 3}
@@ -67,6 +87,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6424214468269278632, guid: 1dd947c97ce7aef4fb60295878c53aca,
         type: 3}
       propertyPath: flavour
@@ -96,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424214469531249504, guid: 1dd947c97ce7aef4fb60295878c53aca,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6424214469794384471, guid: 1dd947c97ce7aef4fb60295878c53aca,
         type: 3}

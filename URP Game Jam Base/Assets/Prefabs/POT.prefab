@@ -516,6 +516,8 @@ MonoBehaviour:
   - Red
   FlavoursToAvoid: []
   requiredIngredient: Red
+  cookParticle: {fileID: 1324962941495344116, guid: bbb6dfc63ec240245bff0ff89267644b,
+    type: 3}
 --- !u!61 &3382425411541112208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -733,48 +735,48 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 3382425412561703871}
     m_ColliderPaths:
-    - - X: 52800712
-        Y: -292978912
-      - X: -184424512
-        Y: -292978912
-      - X: -184424512
-        Y: -322893408
-      - X: 52800712
-        Y: -322893408
+    - - X: 43243836
+        Y: -239949984
+      - X: -151043824
+        Y: -239949984
+      - X: -151043824
+        Y: -264450000
+      - X: 43243836
+        Y: -264450000
   - m_Collider: {fileID: 3382425411058982744}
     m_ColliderPaths:
-    - - X: -174955408
-        Y: -82166344
-      - X: -188658336
-        Y: -82166344
-      - X: -188658336
-        Y: -311795744
-      - X: -174955408
-        Y: -311795744
+    - - X: -143288656
+        Y: -67294312
+      - X: -154511344
+        Y: -67294312
+      - X: -154511344
+        Y: -255360992
+      - X: -143288656
+        Y: -255360992
   - m_Collider: {fileID: 2379365678701921573}
     m_ColliderPaths:
-    - - X: 56668252
-        Y: -82166344
-      - X: 42965344
-        Y: -82166344
-      - X: 42965344
-        Y: -311795744
-      - X: 56668252
-        Y: -311795744
+    - - X: 46411348
+        Y: -67294312
+      - X: 35188652
+        Y: -67294312
+      - X: 35188652
+        Y: -255360992
+      - X: 46411348
+        Y: -255360992
   m_CompositePaths:
     m_Paths:
-    - - {x: 5.280042, y: -32.28934}
-      - {x: 5.280101, y: -31.179575}
-      - {x: 5.6668253, y: -31.179546}
-      - {x: 5.666796, y: -8.216635}
-      - {x: 4.2965345, y: -8.216664}
-      - {x: 4.296505, y: -29.297892}
-      - {x: -17.49554, y: -29.297863}
-      - {x: -17.49557, y: -8.216635}
-      - {x: -18.865833, y: -8.216664}
-      - {x: -18.865805, y: -31.179575}
-      - {x: -18.442451, y: -31.179604}
-      - {x: -18.442423, y: -32.28934}
+    - - {x: 4.3243546, y: -26.445}
+      - {x: 4.324413, y: -25.5361}
+      - {x: 4.6411347, y: -25.53607}
+      - {x: 4.6411057, y: -6.729431}
+      - {x: 3.5188653, y: -6.7294607}
+      - {x: 3.518836, y: -23.994999}
+      - {x: -14.328866, y: -23.99497}
+      - {x: -14.328895, y: -6.729431}
+      - {x: -15.451135, y: -6.7294607}
+      - {x: -15.451106, y: -25.5361}
+      - {x: -15.1043825, y: -25.536129}
+      - {x: -15.104354, y: -26.445}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &3382425412433182106
@@ -1656,6 +1658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1520102979166461785}
   - component: {fileID: 8230954638456229638}
+  - component: {fileID: 5787772702747490304}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1671,7 +1674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7716063601514088429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 4.47, z: 0}
+  m_LocalPosition: {x: -0.2, y: 4.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1730,3 +1733,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5787772702747490304
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716063601514088429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d12973fd302d2044ea8249f994343af3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
