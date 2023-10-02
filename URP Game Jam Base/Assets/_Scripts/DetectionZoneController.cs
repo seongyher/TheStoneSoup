@@ -41,7 +41,7 @@ public class DetectionZoneController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FoodList.Add(collision.GetComponent<FoodItem>());
-        CheckRequirements();
+        //CheckRequirements();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -54,7 +54,7 @@ public class DetectionZoneController : MonoBehaviour
                 FoodList.Remove(foodItem);
             }
 
-            CheckRequirements();
+            //CheckRequirements();
         }
     }
 
