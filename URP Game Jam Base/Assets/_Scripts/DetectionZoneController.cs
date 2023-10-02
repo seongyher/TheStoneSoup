@@ -20,7 +20,7 @@ public class DetectionZoneController : MonoBehaviour
     [Tooltip("Flavours to avoid. Duplicate instances of tags can be added if you want to give the player an allowance for bad flavours. E.g. adding 2 \"spicy\" tags will only fail the player once two spicy items are present.")]
     [SerializeField] private List<string> FlavoursToAvoid = null;
 
-    [SerializeField] private TextMeshProUGUI RequirementsTMP = null;
+    //[SerializeField] private TextMeshProUGUI RequirementsTMP = null;
 
     public string requiredIngredient;
 
@@ -28,8 +28,8 @@ public class DetectionZoneController : MonoBehaviour
     void Start()
     {
         FoodList = new List<FoodItem>();
-        RequirementsTMP.SetText(string.Join(" ", FlavourRequirements));
-        RequirementsTMP.color = Color.white;
+        //RequirementsTMP.SetText(string.Join(" ", FlavourRequirements));
+        //RequirementsTMP.color = Color.white;
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class DetectionZoneController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FoodList.Add(collision.GetComponent<FoodItem>());
-        CheckRequirements();
+        //CheckRequirements();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -54,7 +54,7 @@ public class DetectionZoneController : MonoBehaviour
                 FoodList.Remove(foodItem);
             }
 
-            CheckRequirements();
+            //CheckRequirements();
         }
     }
 
@@ -88,12 +88,12 @@ public class DetectionZoneController : MonoBehaviour
         if (RequirementsToCheck.Count == 0 && (!UsingFlavoursToAvoid || AvoidedFoodToCheck.Count > 0))
         {
             // Customer requirements met
-            RequirementsTMP.color = Color.green;
+            //RequirementsTMP.color = Color.green;
         }
         else
         {
             // Customer request requirements not met
-            RequirementsTMP.color = Color.white;
+            //RequirementsTMP.color = Color.white;
         }
     }
 
