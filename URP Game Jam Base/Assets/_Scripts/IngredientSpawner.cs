@@ -7,6 +7,8 @@ public class IngredientSpawner : MonoBehaviour
 
     public List<GameObject> group1;
     public List<GameObject> group2;
+    public List<GameObject> group3;
+    public List<GameObject> group4;
     public Transform spawnL;
     public Transform spawnR;
     public float spawnMin = 0.5f;
@@ -30,7 +32,8 @@ public class IngredientSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(spawnMin, spawnMax));
-            SpawnFromGroup(1);
+            int group = Random.Range(1, 4);
+            SpawnFromGroup(group);
         }
     }
 
@@ -42,9 +45,16 @@ public class IngredientSpawner : MonoBehaviour
         } else if (group == 2) {
             int i = Random.Range(0, group2.Count);
             g = group2[i];
+        } else if (group == 3) {
+            int i = Random.Range(0, group3.Count);
+            g = group3[i];
+        } else if (group == 4) {
+            int i = Random.Range(0, group4.Count);
+            g = group4[i];
         } else {
             return;
         }
+
 
         //pick pos between spawnL and spawnR
         float t = Random.Range(0.0f, 1.0f);
