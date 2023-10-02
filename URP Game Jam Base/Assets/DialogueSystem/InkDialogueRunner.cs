@@ -121,9 +121,9 @@ public class InkDialogueRunner : MonoBehaviour
                 {
                     /* This is a manual way to switch to a different story asset from within an Ink Script. */
 
-                    string storylet = sentence.Remove(0, 3).Trim();
-                    string path = "Assets/InkScripts/" + storylet + ".json";                                        // Comment this out when building.
-                    storyText = (TextAsset)AssetDatabase.LoadAssetAtPath(path, typeof(TextAsset));                  // Comment this out when building.
+                    //string storylet = sentence.Remove(0, 3).Trim();
+                    //string path = "Assets/InkScripts/" + storylet + ".json";                                        // Comment this out when building.
+                    //storyText = (TextAsset)AssetDatabase.LoadAssetAtPath(path, typeof(TextAsset));                  // Comment this out when building.
                     /*storyText = Resources.Load<TextAsset>(storylet);*/                                            // Uncomment this when building. Put Ink Scripts into Assets/Resources.
                     storyRunner = new Story(storyText.text);
                     sentence = storyRunner.Continue();
