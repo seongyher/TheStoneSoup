@@ -593,7 +593,7 @@ MonoBehaviour:
   - Red
   FlavoursToAvoid: []
   angrySlider: {fileID: 8457851941975140789}
-  angryLimit: 15
+  angryLimit: 25
   onLose:
     m_PersistentCalls:
       m_Calls: []

@@ -27,6 +27,7 @@ public class DetectionZoneController : MonoBehaviour
     private float currentAngry = 0;
     public float angryLimit = 10f;
     public UnityEvent onLose;
+    public UnityEvent onCook;
 
     //[SerializeField] private TextMeshProUGUI RequirementsTMP = null;
 
@@ -145,6 +146,7 @@ public class DetectionZoneController : MonoBehaviour
             if (FoodList[i].flavour == requiredIngredient)
             {
                 GameObject particles = Instantiate(cookParticle, FoodList[i].transform.position, Quaternion.identity);
+                onCook.Invoke();
                 Destroy(FoodList[i].gameObject);
                 Destroy(particles, 0.8f);
                 //FoodList.RemoveAt(i);

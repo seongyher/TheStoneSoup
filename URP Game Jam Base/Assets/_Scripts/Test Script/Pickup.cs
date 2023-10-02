@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour
 
     void OnMouseDown()
     {
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+        offset = gameObject.transform.position - GetCamPosition();
         isDragging = true;
         isFalling = false;
         AudioManager.instance.PlayOneShot("Pop");
@@ -35,7 +35,7 @@ public class Pickup : MonoBehaviour
     {
         isDragging = false;
         rb.isKinematic = false; 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+        Vector3 mousePos = GetCamPosition();
         Vector3 velocity = (mousePos - transform.position).normalized * 10f; 
         //rb.velocity = new Vector3(velocity.x, velocity.y, 0f);
         rb.velocity = Vector3.zero;
@@ -47,7 +47,7 @@ public class Pickup : MonoBehaviour
     {
         if (isDragging)
         {
-            Vector3 newPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f)) + offset;
+            Vector3 newPosition = GetCamPosition() + offset;
             transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
         }
 
@@ -82,5 +82,9 @@ public class Pickup : MonoBehaviour
         }
     }
 
+    private Vector3 GetCamPosition()
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+    }
 }
 
