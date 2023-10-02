@@ -10,6 +10,8 @@ public class Pickup : MonoBehaviour
     private bool isFalling = false;
     public Rigidbody2D rb;
     public float fallSpeed = 8;
+    public Collider2D pickupCollider;
+    public Collider2D collisions;
 
     bool isEnterPot;
 
@@ -70,6 +72,11 @@ public class Pickup : MonoBehaviour
             Debug.Log("in");
             gameObject.layer = LayerMask.NameToLayer("ball-inside");
             }
+        }
+        if (collision.gameObject.tag == "detect") {
+            Debug.Log("exit");
+            isEnterPot = false;
+            gameObject.layer = LayerMask.NameToLayer("ball-outside");
         }
     }
 
