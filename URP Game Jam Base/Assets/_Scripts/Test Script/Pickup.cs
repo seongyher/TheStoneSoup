@@ -13,14 +13,22 @@ public class Pickup : MonoBehaviour
     public Collider2D pickupCollider;
     public Collider2D collisions;
 
+    private Camera _cam;
+
+    private Vector3 leftBottomLimit;
+    private Vector3 rightTopLimit;
+
     bool isEnterPot;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _cam = Camera.main;
         //rb.isKinematic = true; 
         isEnterPot = false;
         isFalling = true;
+        leftBottomLimit = _cam.ViewportToWorldPoint(new Vector3(0, 0.1f, 0));
+        rightTopLimit = _cam.ViewportToWorldPoint(new Vector3(1, 1, 0));
     }
 
     void OnMouseDown()
@@ -48,7 +56,7 @@ public class Pickup : MonoBehaviour
         if (isDragging)
         {
             Vector3 newPosition = GetCamPosition() + offset;
-            transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(newPosition.x, leftBottomLimit.x, rightTopLimit.x), Mathf.Clamp(newPosition.y, leftBottomLimit.y, rightTopLimit.y), transform.position.z);
         }
 
         if (isFalling) {
