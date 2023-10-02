@@ -1,193 +1,132 @@
-using System;
+using UnityEngine.Audio;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.Serialization;
 
-[Serializable]
-public struct Sound
+public class AudioManager : MonoBehaviour
 {
-    public string name;
-    public AudioClip clip;
-    public float volumePercent;
-}
+    ///Now that its a singleton, you can access things using:
+    ///AudioManager.instance.PlayOneShot("Music");
+    public static AudioManager instance;
 
-public class AudioManager : Singleton<AudioManager>
-{
-    public bool masterMute = false;
-    public float masterVolume;
-    public AudioMixer audioMixer;
+    public Sound[] sounds;
 
-    [Header("Music")]
-    public bool musicMute;
-    public float musicVolume;
-    public AudioMixerGroup musicMix;
-    private AudioSource musicSource;
-    public bool playOnStart;
-    private Sound currentMusic;
-    public string startingMusic;
-    public List<Sound> music = new List<Sound>();
+    private void Awake()
+    {
+        // Ensure only one instance of AudioManager exists
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Keep AudioManager alive between scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-    [Header("Sound Effects")]
-    public bool sfxMute = false;
-    public float sfxVolume;
-    public AudioMixerGroup sfxMix;
-    public List<Sound> sounds = new List<Sound>();
-    private List<AudioSource> activeSources = new List<AudioSource>();
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
 
-    [Header("Dialogue")]
-    public bool dialogueMute;
-    public float dialogueVolume;
-    public AudioMixerGroup dialogueMix;
-    private AudioSource dialogueSource;
-    public List<Sound> dialogue = new List<Sound>();
-
+            s.source.volume = s.volume;
+            s.source.loop = s.loop;
+        }
+    }
 
     private void Start()
     {
-        if(playOnStart)
-            PlayMusic(startingMusic);
-
-        //Reset volumes to default.
-        ChangeMasterVol(masterVolume);
-        ChangeSfxVol(sfxVolume);
-        ChangeMusicVol(musicVolume);
-        ChangeDialogueVol(dialogueVolume);
+        //Background music start
+        //Make loop
+        Play("BackgroundMusic");
     }
-    
-    public void PlaySound(string soundToPlay)
-    {
-        Sound sound = sounds.Find(s => s.name == soundToPlay);
 
-        if (sound.clip == null)
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
         {
-            Debug.Log("Sound not found: " + soundToPlay);
+            Debug.LogWarning("Sound: " + name + " not found");
             return;
         }
-
-        PlaySound(sound);
-    }
-    
-    public void PlaySound(Sound soundToPlay)
-    {
-        if (masterMute || sfxMute)
-            return;
-        
-        if (activeSources.Count >= 5)
-            return;
-
-        AudioSource source = gameObject.AddComponent<AudioSource>();
-        source.outputAudioMixerGroup = sfxMix;
-
-        source.clip = soundToPlay.clip;
-        source.volume = soundToPlay.volumePercent * sfxVolume;
-        source.Play();
-
-        activeSources.Add(source);
-    }
-
-    public void PlayMusic(string musicToPlay)
-    {
-        Sound sound = music.Find(s => s.name == musicToPlay);
-
-        if (sound.clip == null)
+        if (s.varyPitch)
         {
-            Debug.Log("Music not found: " + musicToPlay);
+            s.source.pitch = UnityEngine.Random.Range(s.minRange, s.maxRange);
+        }
+        else
+        {
+            s.source.pitch = 1;
+        }
+        s.source.Play();
+    }
+
+    public void PlayOneShot(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
             return;
         }
-        
-        PlayMusic(sound);
-    }
-    
-    public void PlayMusic(Sound musicToPlay)
-    {
-        if (masterMute || sfxMute)
-            return;
-        
-        if (activeSources.Count >= 5)
-            return;
-
-        if (!musicSource)
+        if (s.varyPitch)
         {
-            musicSource = gameObject.AddComponent<AudioSource>();
-            musicSource.outputAudioMixerGroup = musicMix;
+            s.source.pitch = UnityEngine.Random.Range(s.minRange, s.maxRange);
         }
-        
-        currentMusic = musicToPlay;
-        musicSource.clip = currentMusic.clip;
-        musicSource.volume = currentMusic.volumePercent * musicVolume;
-        
-        musicSource.loop = true;
-        musicSource.Play();
+        else
+        {
+            s.source.pitch = 1;
+        }
+        s.source.PlayOneShot(s.source.clip);
     }
 
-    public void PlayDialogue(string dialogueToPlay)
+    public void Play(string name, float stopTime)
     {
-        Sound sound = dialogue.Find(s => s.name == dialogueToPlay);
-
-        if (sound.clip == null)
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
         {
-            Debug.Log("Dialogue not found: " + dialogueToPlay);
+            Debug.LogWarning("Sound: " + name + " not found");
             return;
         }
-
-        PlayDialogue(sound);
-    }
-
-    public void PlayDialogue(Sound dialogueToPlay)
-    {
-        if (masterMute || dialogueMute)
-            return;
-
-        if (!dialogueSource)
+        if (s.varyPitch)
         {
-            dialogueSource = gameObject.AddComponent<AudioSource>();
-            dialogueSource.outputAudioMixerGroup = dialogueMix;
+            s.source.pitch = UnityEngine.Random.Range(s.minRange, s.maxRange);
         }
-
-        dialogueSource.clip = dialogueToPlay.clip;
-        dialogueSource.volume = dialogueToPlay.volumePercent * dialogueVolume;
-        dialogueSource.Play();
-
-        activeSources.Add(dialogueSource);
-    }
-
-    //Audio Clean-up
-    private void Update()
-    {
-        // Clean up finished sounds
-        for (int i = activeSources.Count - 1; i >= 0; i--)
+        else
         {
-            if (!activeSources[i].isPlaying)
-            {
-                Destroy(activeSources[i]);
-                activeSources.RemoveAt(i);
-            }
+            s.source.pitch = 1;
         }
+        s.source.Play();
+        StartCoroutine(StopAudioAfterTime(s.source, stopTime));
     }
 
-    public void ChangeMasterVol(float sliderValue)
+    private IEnumerator StopAudioAfterTime(AudioSource audioSource, float time)
     {
-        masterVolume = sliderValue;
-        audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 20);
+        yield return new WaitForSeconds(time);
+        audioSource.Stop();
     }
-    
-    public void ChangeSfxVol(float sliderValue)
-    {
-        sfxVolume = sliderValue; 
-        audioMixer.SetFloat("SfxVol", Mathf.Log10(sfxVolume) * 20);
-    }
-    
-    public void ChangeMusicVol(float sliderValue)
-    {
-        musicVolume = sliderValue; 
-        audioMixer.SetFloat("MusicVol", Mathf.Log10(musicVolume) * 20);
-    }
+}
 
-    public void ChangeDialogueVol(float sliderValue)
-    {
-        dialogueVolume = sliderValue;
-        audioMixer.SetFloat("DialogueVol", Mathf.Log10(dialogueVolume) * 20);
-    }
+[System.Serializable]
+public class Sound
+{
+    public string name;
+
+    public AudioClip clip;
+
+    [Range(0f, 1f)]
+    public float volume;
+
+    public bool loop;
+
+    public bool varyPitch = false;
+
+    [Range(0f, 2f)]
+    public float minRange;
+
+    [Range(0f, 2f)]
+    public float maxRange;
+
+    [HideInInspector]
+    public AudioSource source;
 }
