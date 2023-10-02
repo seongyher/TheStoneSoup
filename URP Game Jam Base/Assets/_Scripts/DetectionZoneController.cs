@@ -108,8 +108,9 @@ public class DetectionZoneController : MonoBehaviour
         {
             if (FoodList[i].flavour == requiredIngredient)
             {
-                Instantiate(cookParticle, FoodList[i].transform.position, Quaternion.identity);
+                GameObject particles = Instantiate(cookParticle, FoodList[i].transform.position, Quaternion.identity);
                 Destroy(FoodList[i].gameObject);
+                Destroy(particles, 0.8f);
                 //FoodList.RemoveAt(i);
             }
         }

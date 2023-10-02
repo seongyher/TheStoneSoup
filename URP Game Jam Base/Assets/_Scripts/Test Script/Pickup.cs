@@ -28,6 +28,7 @@ public class Pickup : MonoBehaviour
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
         isDragging = true;
         isFalling = false;
+        AudioManager.instance.PlayOneShot("Pop");
     }
 
     void OnMouseUp()
@@ -39,6 +40,7 @@ public class Pickup : MonoBehaviour
         //rb.velocity = new Vector3(velocity.x, velocity.y, 0f);
         rb.velocity = Vector3.zero;
         rb.gravityScale = 1;
+        AudioManager.instance.PlayOneShot("Pop");
     }
 
     void Update()

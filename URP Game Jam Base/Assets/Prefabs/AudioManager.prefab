@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6986852466076077701}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2849904549416316264
 MonoBehaviour:
@@ -44,31 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a439bb4df59b7c409d8c1decaed4ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterMute: 0
-  masterVolume: 1
-  audioMixer: {fileID: 24100000, guid: 40e2884f3344b2e46b7d709567c2fe48, type: 2}
-  musicMute: 0
-  musicVolume: 1
-  musicMix: {fileID: -1413795500009600871, guid: 40e2884f3344b2e46b7d709567c2fe48,
-    type: 2}
-  playOnStart: 0
-  startingMusic: TitleMusic
-  music:
-  - name: TitleMusic
-    clip: {fileID: 8300000, guid: 8baa98057153db143b688b0ee0d02b3e, type: 3}
-    volumePercent: 1
-  sfxMute: 0
-  sfxVolume: 1
-  sfxMix: {fileID: 1164407368917790334, guid: 40e2884f3344b2e46b7d709567c2fe48, type: 2}
   sounds:
-  - name: UiBlip
-    clip: {fileID: 8300000, guid: d89bdd79a236dbd45b3951c270fe341c, type: 3}
-    volumePercent: 1
-  dialogueMute: 0
-  dialogueVolume: 1
-  dialogueMix: {fileID: -321397112277999116, guid: 40e2884f3344b2e46b7d709567c2fe48,
-    type: 2}
-  dialogue:
-  - name: DialogueTest
-    clip: {fileID: 0}
-    volumePercent: 1
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: b3a0ea6dec7882b44b22d23f70d35b4f, type: 3}
+    volume: 0.791
+    loop: 1
+    varyPitch: 0
+    minRange: 0
+    maxRange: 0
+    source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 8e1f5fd93a35de74994816586064f4ab, type: 3}
+    volume: 0.791
+    loop: 0
+    varyPitch: 0
+    minRange: 1.382
+    maxRange: 1.727
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: a0e9c85dcf5e9e84cb2ca5096ad482f8, type: 3}
+    volume: 0.405
+    loop: 0
+    varyPitch: 0
+    minRange: 0.794
+    maxRange: 1.757
+    source: {fileID: 0}
