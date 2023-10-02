@@ -10,6 +10,7 @@ public class CooldownScript : MonoBehaviour
 
     public Slider cooldownSlider;
     public GameObject cookButton;
+    private bool isLost = false;
 
     private bool isReady = false;
     // Start is called before the first frame update
@@ -21,14 +22,19 @@ public class CooldownScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTime <= timerDuration)
+        if (!isLost)
         {
-            currentTime += Time.deltaTime;
-            updateSlider();
-        } else if(!isReady)
-        {
-            ReadyToCook();
+            if (currentTime <= timerDuration)
+            {
+                currentTime += Time.deltaTime;
+                updateSlider();
+            }
+            else if (!isReady)
+            {
+                ReadyToCook();
+            }
         }
+        
     }
 
     public void updateSlider()
@@ -49,5 +55,10 @@ public class CooldownScript : MonoBehaviour
         cookButton.SetActive(true);
         cooldownSlider.gameObject.SetActive(false);
         isReady = true;
+    }
+
+    public void GameLost()
+    {
+        isLost = true;
     }
 }

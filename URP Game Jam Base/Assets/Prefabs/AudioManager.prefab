@@ -57,15 +57,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8e1f5fd93a35de74994816586064f4ab, type: 3}
     volume: 0.791
     loop: 0
-    varyPitch: 0
-    minRange: 1.382
-    maxRange: 1.727
+    varyPitch: 1
+    minRange: 1.191
+    maxRange: 1.464
     source: {fileID: 0}
   - name: Pop
     clip: {fileID: 8300000, guid: a0e9c85dcf5e9e84cb2ca5096ad482f8, type: 3}
     volume: 0.405
     loop: 0
-    varyPitch: 0
-    minRange: 0.794
-    maxRange: 1.757
+    varyPitch: 1
+    minRange: 0.758
+    maxRange: 1.199
+    source: {fileID: 0}
+  - name: Ding
+    clip: {fileID: 8300000, guid: ae69a48be7de45a4dba1d8d437159c26, type: 3}
+    volume: 0.512
+    loop: 0
+    varyPitch: 1
+    minRange: 0.956
+    maxRange: 1.155
     source: {fileID: 0}
