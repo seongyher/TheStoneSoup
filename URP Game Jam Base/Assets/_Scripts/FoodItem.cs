@@ -8,6 +8,8 @@ public class FoodItem : MonoBehaviour
     [SerializeField] private List<string> Flavours = null;
     public List<string> flavours => Flavours;
 
+    public string flavour;
+
     // Start is called before the first frame update
     void Start()
     {

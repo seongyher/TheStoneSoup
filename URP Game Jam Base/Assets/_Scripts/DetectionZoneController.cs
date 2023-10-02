@@ -22,6 +22,8 @@ public class DetectionZoneController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI RequirementsTMP = null;
 
+    public string requiredIngredient;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,4 +97,16 @@ public class DetectionZoneController : MonoBehaviour
         }
     }
 
+    public void CookIngredients()
+    {
+        for (int i = FoodList.Count() - 1; i >= 0; i--)
+        {
+            if (FoodList[i].flavour == requiredIngredient)
+            {
+                Destroy(FoodList[i].gameObject);
+                //FoodList.RemoveAt(i);
+            }
+        }
+        
+    }
 }
