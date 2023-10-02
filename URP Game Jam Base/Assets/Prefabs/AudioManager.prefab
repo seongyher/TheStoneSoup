@@ -53,3 +53,19 @@ MonoBehaviour:
     minRange: 0
     maxRange: 0
     source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 8e1f5fd93a35de74994816586064f4ab, type: 3}
+    volume: 0.791
+    loop: 0
+    varyPitch: 0
+    minRange: 1.382
+    maxRange: 1.727
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: a0e9c85dcf5e9e84cb2ca5096ad482f8, type: 3}
+    volume: 0.405
+    loop: 0
+    varyPitch: 0
+    minRange: 0.794
+    maxRange: 1.757
+    source: {fileID: 0}

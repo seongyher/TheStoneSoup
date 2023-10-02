@@ -303,6 +303,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126770690}
   m_CullTransparentMesh: 1
+--- !u!114 &141460511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1572058872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a439bb4df59b7c409d8c1decaed4ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &151388069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6424214468269278630, guid: 1dd947c97ce7aef4fb60295878c53aca,
@@ -478,7 +490,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &245023586
 MonoBehaviour:
@@ -1409,7 +1421,7 @@ PrefabInstance:
     - target: {fileID: 1033669116967450300, guid: faa073b72cf08f5a7842effac82ebbde,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1033669116967450300, guid: faa073b72cf08f5a7842effac82ebbde,
         type: 3}
@@ -1460,6 +1472,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033669116967450301, guid: faa073b72cf08f5a7842effac82ebbde,
+        type: 3}
+      propertyPath: spawnMax
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033669116967450301, guid: faa073b72cf08f5a7842effac82ebbde,
+        type: 3}
+      propertyPath: spawnMin
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1033669116967450302, guid: faa073b72cf08f5a7842effac82ebbde,
         type: 3}
@@ -2059,7 +2081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3332836ff60ee0a4bb0953df34147ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 1
+  timerDuration: 30
   cooldownSlider: {fileID: 419117987}
   cookButton: {fileID: 2050784310}
 --- !u!4 &983391290
@@ -2075,7 +2097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061177286
 GameObject:
@@ -3118,10 +3140,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].maxRange
+      value: 1.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].minRange
+      value: 1.191
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[2].maxRange
+      value: 1.199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[2].minRange
+      value: 0.758
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].varyPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: sounds.Array.data[2].varyPitch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3850225283944689370, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3850225283944689370, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
@@ -3376,6 +3428,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141460511}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fire
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2050784313
