@@ -5,6 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DetectionZoneController : MonoBehaviour
 {
@@ -20,6 +22,13 @@ public class DetectionZoneController : MonoBehaviour
     [Tooltip("Flavours to avoid. Duplicate instances of tags can be added if you want to give the player an allowance for bad flavours. E.g. adding 2 \"spicy\" tags will only fail the player once two spicy items are present.")]
     [SerializeField] private List<string> FlavoursToAvoid = null;
 
+    private int currentWrongIngredients = 0;
+    public GameObject angrySlider;
+    private float currentAngry = 0;
+    public float angryLimit = 10f;
+    public UnityEvent onLose;
+    public UnityEvent onCook;
+
     //[SerializeField] private TextMeshProUGUI RequirementsTMP = null;
 
     public string requiredIngredient;
@@ -29,6 +38,7 @@ public class DetectionZoneController : MonoBehaviour
     void Start()
     {
         FoodList = new List<FoodItem>();
+        angrySlider.GetComponent<Slider>().maxValue = angryLimit;
         //RequirementsTMP.SetText(string.Join(" ", FlavourRequirements));
         //RequirementsTMP.color = Color.white;
     }
@@ -36,7 +46,21 @@ public class DetectionZoneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentWrongIngredients > 0)
+        {
+            angrySlider.SetActive(true);
+            currentAngry += Time.deltaTime;
+            angrySlider.GetComponent<Slider>().value = currentAngry;
+        } else if (currentAngry > 0)
+        {
+            currentAngry -= Time.deltaTime;
+            angrySlider.GetComponent<Slider>().value = currentAngry;
+        }
 
+        if (currentAngry >= angryLimit)
+        {
+            onLose.Invoke();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +68,11 @@ public class DetectionZoneController : MonoBehaviour
         if (!FoodList.Contains(collision.GetComponent<FoodItem>()))
         {
             FoodList.Add(collision.GetComponent<FoodItem>());
+
+            if (collision.GetComponent<FoodItem>().flavour != requiredIngredient)
+            {
+                currentWrongIngredients++;
+            }
         }
         
         //CheckRequirements();
@@ -57,6 +86,14 @@ public class DetectionZoneController : MonoBehaviour
             if (FoodList.Contains(foodItem))
             {
                 FoodList.Remove(foodItem);
+                if (collision.GetComponent<FoodItem>().flavour != requiredIngredient)
+                {
+                    currentWrongIngredients--;
+                    if (currentWrongIngredients <= 0)
+                    {
+                        StartCoroutine(RemoveAngry());
+                    }
+                }
             }
 
             //CheckRequirements();
@@ -109,11 +146,18 @@ public class DetectionZoneController : MonoBehaviour
             if (FoodList[i].flavour == requiredIngredient)
             {
                 GameObject particles = Instantiate(cookParticle, FoodList[i].transform.position, Quaternion.identity);
+                onCook.Invoke();
                 Destroy(FoodList[i].gameObject);
                 Destroy(particles, 0.8f);
                 //FoodList.RemoveAt(i);
             }
         }
-        
+
+    }
+
+    IEnumerator RemoveAngry()
+    {
+        yield return new WaitForSeconds(2);
+        angrySlider.SetActive(false);
     }
 }
