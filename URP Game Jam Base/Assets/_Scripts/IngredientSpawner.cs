@@ -32,7 +32,7 @@ public class IngredientSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(spawnMin, spawnMax));
-            int group = Random.Range(1, 4);
+            int group = Random.Range(1, 5);
             SpawnFromGroup(group);
         }
     }

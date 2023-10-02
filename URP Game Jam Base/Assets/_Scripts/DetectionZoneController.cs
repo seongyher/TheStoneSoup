@@ -40,7 +40,11 @@ public class DetectionZoneController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FoodList.Add(collision.GetComponent<FoodItem>());
+        if (!FoodList.Contains(collision.GetComponent<FoodItem>()))
+        {
+            FoodList.Add(collision.GetComponent<FoodItem>());
+        }
+        
         //CheckRequirements();
     }
 

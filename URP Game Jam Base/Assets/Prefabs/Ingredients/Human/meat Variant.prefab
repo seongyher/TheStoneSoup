@@ -7,6 +7,71 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 0.32567132
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.62243885
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.13254675
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.746432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.6629115
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.16494416
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -0.82406414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.8032541
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 0.109464526
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -0.7802028
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 0.806984
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.18659201
+      objectReference: {fileID: 0}
     - target: {fileID: 5555249497796779095, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
       propertyPath: m_Sprite
@@ -86,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
       propertyPath: m_Name
-      value: meat
+      value: meat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
@@ -125,3 +190,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde7a20ed229d634c8644b7ad6680306, type: 3}
+--- !u!1 &5275164784383080562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
+    type: 3}
+  m_PrefabInstance: {fileID: 300918261134756576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &4690294817665556329
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275164784383080562}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06339204, y: -0.04898441}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5647643, y: 1.5128973}
+  m_EdgeRadius: 0
