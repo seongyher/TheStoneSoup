@@ -71,12 +71,17 @@ PrefabInstance:
     - target: {fileID: 5555249498110833298, guid: 69b1f1fc836ec652299f18ca1d813b80,
         type: 3}
       propertyPath: m_Name
-      value: mars
+      value: mars Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5555249498110833298, guid: 69b1f1fc836ec652299f18ca1d813b80,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555249498110833310, guid: 69b1f1fc836ec652299f18ca1d813b80,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b1f1fc836ec652299f18ca1d813b80, type: 3}

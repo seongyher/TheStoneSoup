@@ -7,6 +7,91 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.73782915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.29172817
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.67828625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.079119116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -0.34817573
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.11421457
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: -0.2650627
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -0.81478
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 0.20715204
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.80916965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
+      value: 0.24901582
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
+      value: -0.30683374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
+      value: 0.5704966
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -0.007973373
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 0.58223075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
+      value: 0.45885286
+      objectReference: {fileID: 0}
     - target: {fileID: 5555249497796779095, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
       propertyPath: m_Sprite

@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
       propertyPath: m_Name
-      value: cockie
+      value: cockie Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
         type: 3}
@@ -123,5 +123,28 @@ PrefabInstance:
       propertyPath: Flavours.Array.data[0]
       value: human
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3129978024010415235, guid: fde7a20ed229d634c8644b7ad6680306, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fde7a20ed229d634c8644b7ad6680306, type: 3}
+--- !u!1 &9040342412732126656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5555249498110833298, guid: fde7a20ed229d634c8644b7ad6680306,
+    type: 3}
+  m_PrefabInstance: {fileID: 3489597545076483922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &3893798921790548719
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9040342412732126656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01, y: -0.03}
+  serializedVersion: 2
+  m_Radius: 0.69

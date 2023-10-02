@@ -93,7 +93,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.93
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5555249498110833310, guid: b052fe6f60afc26e99182f238121e815, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b052fe6f60afc26e99182f238121e815, type: 3}
 --- !u!1 &2442633708967074563 stripped
 GameObject:
@@ -127,3 +128,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7810912, y: 1.3565845}
   m_EdgeRadius: 0
+--- !u!60 &9052443833002429797
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442633708967074563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.0961823, y: -0.27672994}
+      - {x: -2.0214465, y: -1.0321943}
+      - {x: -2.0192704, y: -1.4151416}
+      - {x: -0.1859904, y: -1.4280376}
+      - {x: -0.19671106, y: -0.96771294}
