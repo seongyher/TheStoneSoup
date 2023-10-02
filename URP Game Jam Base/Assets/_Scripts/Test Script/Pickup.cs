@@ -30,7 +30,8 @@ public class Pickup : MonoBehaviour
         rb.isKinematic = false; 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
         Vector3 velocity = (mousePos - transform.position).normalized * 10f; 
-        rb.velocity = new Vector3(velocity.x, velocity.y, 0f);
+        //rb.velocity = new Vector3(velocity.x, velocity.y, 0f);
+        rb.velocity = Vector3.zero;
     }
 
     void Update()
